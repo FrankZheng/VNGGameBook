@@ -35,14 +35,14 @@ class GameItem : NSObject {
                          "Drop balls to knock over glasses and spill everything! Use your brain and think outside of the box to complete all levels. Unlock skins, themes, and new stuff along the way.",
                          "Fight colorful and crazy pinatas! Travel all over the world. Purchase and upgrade various weapons to become stronger. Smash those cute pinatas, and get all the coins they have!",
                          "Grow and automate the most profitable farming empire of all time! Make smart investments into a wide variety of whacky crops and animals and you'll earn millions in no time. Can you build the most profitable farming business in the universe?"]
-        let names = ["KillTheBuddy", "guitar", "TankStars", "PickMeUp", "SpillIt", "Pinatamasters", "IdleFarmingEmpire"]
+        let names = ["KickTheBuddy", "guitar", "TankStars", "PickMeUp", "SpillIt", "Pinatamasters", "IdleFarmingEmpire"]
         
         for(index, name) in names.enumerated() {
             let title = titles[index]
             let subtitle = subtitles[index]
             let urlPath = Bundle.main.path(forResource: name, ofType: "mp4")!
             let url = URL(fileURLWithPath: urlPath)
-            let thumbURLPath = Bundle.main.path(forResource: name, ofType: "png")!
+            let thumbURLPath = Bundle.main.path(forResource: name, ofType: "jpg")!
             let thumbURL = URL(fileURLWithPath: thumbURLPath)
             
             let game = GameItem(title: title, subtitle: subtitle, url: url, thumbURL: thumbURL)

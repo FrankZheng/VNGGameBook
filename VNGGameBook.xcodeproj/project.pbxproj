@@ -23,7 +23,6 @@
 		FCE638832272DD8000F49376 /* SpillIt.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE6387C2272DD8000F49376 /* SpillIt.jpg */; };
 		FCE638842272DD8000F49376 /* Pinatamasters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE6387D2272DD8000F49376 /* Pinatamasters.jpg */; };
 		FCE638852272DD8000F49376 /* IdleFarmingEmpire.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE6387E2272DD8000F49376 /* IdleFarmingEmpire.jpg */; };
-		FCE638862272DD8000F49376 /* PickMeUp.png in Resources */ = {isa = PBXBuildFile; fileRef = FCE6387F2272DD8000F49376 /* PickMeUp.png */; };
 		FCE638872272DD8000F49376 /* guitar.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE638802272DD8000F49376 /* guitar.jpg */; };
 		FCE638892272E0BB00F49376 /* GameItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE638882272E0BA00F49376 /* GameItem.swift */; };
 		FCE638912272E66500F49376 /* PickMeUp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCE6388A2272E66500F49376 /* PickMeUp.mp4 */; };
@@ -32,8 +31,10 @@
 		FCE638942272E66500F49376 /* TankStars.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCE6388D2272E66500F49376 /* TankStars.mp4 */; };
 		FCE638952272E66500F49376 /* Pinatamasters.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCE6388E2272E66500F49376 /* Pinatamasters.mp4 */; };
 		FCE638962272E66500F49376 /* SpillIt.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCE6388F2272E66500F49376 /* SpillIt.mp4 */; };
-		FCE638972272E66500F49376 /* KillTheBuddy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCE638902272E66500F49376 /* KillTheBuddy.mp4 */; };
+		FCE638972272E66500F49376 /* KickTheBuddy.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = FCE638902272E66500F49376 /* KickTheBuddy.mp4 */; };
 		FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE638982272E8B100F49376 /* GameItemViewController.swift */; };
+		FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6389A227306B000F49376 /* GameItemCell.swift */; };
+		FCE6389D2273113300F49376 /* PickMeUp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE6389C2273113300F49376 /* PickMeUp.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +82,6 @@
 		FCE6387C2272DD8000F49376 /* SpillIt.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SpillIt.jpg; sourceTree = "<group>"; };
 		FCE6387D2272DD8000F49376 /* Pinatamasters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Pinatamasters.jpg; sourceTree = "<group>"; };
 		FCE6387E2272DD8000F49376 /* IdleFarmingEmpire.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IdleFarmingEmpire.jpg; sourceTree = "<group>"; };
-		FCE6387F2272DD8000F49376 /* PickMeUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PickMeUp.png; sourceTree = "<group>"; };
 		FCE638802272DD8000F49376 /* guitar.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = guitar.jpg; sourceTree = "<group>"; };
 		FCE638882272E0BA00F49376 /* GameItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItem.swift; sourceTree = "<group>"; };
 		FCE6388A2272E66500F49376 /* PickMeUp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = PickMeUp.mp4; sourceTree = "<group>"; };
@@ -90,8 +90,10 @@
 		FCE6388D2272E66500F49376 /* TankStars.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TankStars.mp4; sourceTree = "<group>"; };
 		FCE6388E2272E66500F49376 /* Pinatamasters.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pinatamasters.mp4; sourceTree = "<group>"; };
 		FCE6388F2272E66500F49376 /* SpillIt.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SpillIt.mp4; sourceTree = "<group>"; };
-		FCE638902272E66500F49376 /* KillTheBuddy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KillTheBuddy.mp4; sourceTree = "<group>"; };
+		FCE638902272E66500F49376 /* KickTheBuddy.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = KickTheBuddy.mp4; sourceTree = "<group>"; };
 		FCE638982272E8B100F49376 /* GameItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewController.swift; sourceTree = "<group>"; };
+		FCE6389A227306B000F49376 /* GameItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCell.swift; sourceTree = "<group>"; };
+		FCE6389C2273113300F49376 /* PickMeUp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PickMeUp.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				FCE63866227198D000F49376 /* WebServer.swift */,
 				FCE638882272E0BA00F49376 /* GameItem.swift */,
 				FCE638982272E8B100F49376 /* GameItemViewController.swift */,
+				FCE6389A227306B000F49376 /* GameItemCell.swift */,
 				FCE638772272AD3700F49376 /* Local Videos */,
 			);
 			path = VNGGameBook;
@@ -181,10 +184,10 @@
 		FCE638782272AD7E00F49376 /* Thumbnails */ = {
 			isa = PBXGroup;
 			children = (
+				FCE6389C2273113300F49376 /* PickMeUp.jpg */,
 				FCE638802272DD8000F49376 /* guitar.jpg */,
 				FCE6387E2272DD8000F49376 /* IdleFarmingEmpire.jpg */,
 				FCE6387B2272DD8000F49376 /* KickTheBuddy.jpg */,
-				FCE6387F2272DD8000F49376 /* PickMeUp.png */,
 				FCE6387D2272DD8000F49376 /* Pinatamasters.jpg */,
 				FCE6387C2272DD8000F49376 /* SpillIt.jpg */,
 				FCE6387A2272DD8000F49376 /* TankStars.jpg */,
@@ -197,7 +200,7 @@
 			children = (
 				FCE6388B2272E66500F49376 /* guitar.mp4 */,
 				FCE6388C2272E66500F49376 /* IdleFarmingEmpire.mp4 */,
-				FCE638902272E66500F49376 /* KillTheBuddy.mp4 */,
+				FCE638902272E66500F49376 /* KickTheBuddy.mp4 */,
 				FCE6388A2272E66500F49376 /* PickMeUp.mp4 */,
 				FCE6388E2272E66500F49376 /* Pinatamasters.mp4 */,
 				FCE6388F2272E66500F49376 /* SpillIt.mp4 */,
@@ -298,11 +301,11 @@
 				FCE638912272E66500F49376 /* PickMeUp.mp4 in Resources */,
 				FCE6384322718A8B00F49376 /* Main.storyboard in Resources */,
 				FCE638872272DD8000F49376 /* guitar.jpg in Resources */,
-				FCE638862272DD8000F49376 /* PickMeUp.png in Resources */,
 				FCE638832272DD8000F49376 /* SpillIt.jpg in Resources */,
 				FCE638962272E66500F49376 /* SpillIt.mp4 in Resources */,
 				FCE638932272E66500F49376 /* IdleFarmingEmpire.mp4 in Resources */,
-				FCE638972272E66500F49376 /* KillTheBuddy.mp4 in Resources */,
+				FCE6389D2273113300F49376 /* PickMeUp.jpg in Resources */,
+				FCE638972272E66500F49376 /* KickTheBuddy.mp4 in Resources */,
 				FCE638822272DD8000F49376 /* KickTheBuddy.jpg in Resources */,
 				FCE638952272E66500F49376 /* Pinatamasters.mp4 in Resources */,
 				FCE638812272DD8000F49376 /* TankStars.jpg in Resources */,
@@ -327,6 +330,7 @@
 				FCE6383E22718A8B00F49376 /* AppDelegate.swift in Sources */,
 				FCE638892272E0BB00F49376 /* GameItem.swift in Sources */,
 				FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */,
+				FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */,
 				FCE63867227198D000F49376 /* WebServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
