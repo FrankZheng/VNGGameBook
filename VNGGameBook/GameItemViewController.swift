@@ -65,6 +65,7 @@ class GameItemViewController: UITableViewController {
         //2 Create an AVPlayerViewController and present it when the user taps
         let gameItem = gameItems[indexPath.row]
         
+        #if false
         let videoURL = gameItem.url
         let player = AVPlayer(url: videoURL)
         let playerViewController = AVPlayerViewController()
@@ -73,6 +74,12 @@ class GameItemViewController: UITableViewController {
         present(playerViewController, animated: true) {
             player.play()
         }
+        #else
+        let videoViewController = GameVideoViewController(gameItem: gameItem)
+        present(videoViewController, animated: true) {
+            videoViewController.play()
+        }
+        #endif
     }
 
     

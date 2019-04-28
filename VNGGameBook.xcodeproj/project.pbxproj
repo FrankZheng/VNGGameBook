@@ -35,6 +35,7 @@
 		FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE638982272E8B100F49376 /* GameItemViewController.swift */; };
 		FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6389A227306B000F49376 /* GameItemCell.swift */; };
 		FCE6389D2273113300F49376 /* PickMeUp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE6389C2273113300F49376 /* PickMeUp.jpg */; };
+		FCE6389F22754A6B00F49376 /* GameVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		FCE638982272E8B100F49376 /* GameItemViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewController.swift; sourceTree = "<group>"; };
 		FCE6389A227306B000F49376 /* GameItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCell.swift; sourceTree = "<group>"; };
 		FCE6389C2273113300F49376 /* PickMeUp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PickMeUp.jpg; sourceTree = "<group>"; };
+		FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVideoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 				FCE638882272E0BA00F49376 /* GameItem.swift */,
 				FCE638982272E8B100F49376 /* GameItemViewController.swift */,
 				FCE6389A227306B000F49376 /* GameItemCell.swift */,
+				FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */,
 				FCE638772272AD3700F49376 /* Local Videos */,
 			);
 			path = VNGGameBook;
@@ -328,6 +331,7 @@
 			files = (
 				FCE6384022718A8B00F49376 /* ViewController.swift in Sources */,
 				FCE6383E22718A8B00F49376 /* AppDelegate.swift in Sources */,
+				FCE6389F22754A6B00F49376 /* GameVideoViewController.swift in Sources */,
 				FCE638892272E0BB00F49376 /* GameItem.swift in Sources */,
 				FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */,
 				FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */,
