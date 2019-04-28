@@ -91,7 +91,7 @@ class GameItemCell: UITableViewCell {
         let imageYCenter = titleLabel.frame.origin.y + titleSize.height + padding + thumbHeight/2.0
         thumbImageView.center = CGPoint(x: bounds.width/2.0, y: imageYCenter)
         
-        let subtitleYCenter = thumbImageView.frame.origin.y + thumbImageView.bounds.height + padding
+        let subtitleYCenter = thumbImageView.frame.origin.y + thumbImageView.bounds.height + padding + subtitleSize.height/2.0
         subtitleLabel.center = CGPoint(x: subtitleLabel.bounds.width/2.0 + padding, y: subtitleYCenter)
     }
     
@@ -106,6 +106,7 @@ class GameItemCell: UITableViewCell {
         
         label.text = gameItem.subtitle
         label.font = UIFont.systemFont(ofSize: 14.0)
+        label.numberOfLines = 0
         let subtitleHeight = label.sizeThatFits(CGSize(width: UIScreen.main.bounds.width - 32, height: .infinity)).height
         
         return padding + titleHeight + padding + thumbHeight + padding + subtitleHeight + padding

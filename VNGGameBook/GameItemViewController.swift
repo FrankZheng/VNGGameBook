@@ -7,10 +7,14 @@
 //
 
 import UIKit
+import AVKit
 
 class GameItemViewController: UITableViewController {
     var gameItems = [GameItem]()
     let GameItemCellReuseIdentifier = "GameItemCell"
+    //used to cache the cell height
+    //here use the row index as the key, need clear cache when reload data
+    var cellHeightCache = [Int:CGFloat]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +24,7 @@ class GameItemViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+        tableView.estimatedRowHeight = 300
         tableView.register(GameItemCell.classForCoder(), forCellReuseIdentifier: GameItemCellReuseIdentifier)
         self.title = "Game Book"
         
@@ -45,9 +49,32 @@ class GameItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let gameItem = gameItems[indexPath.row]
-        return GameItemCell.height(for: gameItem)
+        let row = indexPath.row
+        if let cachedHeight = cellHeightCache[row] {
+            return cachedHeight
+        } else {
+            let gameItem = gameItems[row]
+            let height = GameItemCell.height(for: gameItem)
+            print("calculate row height for \(gameItem.title), \(height)")
+            cellHeightCache[row] = height
+            return height
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //2 Create an AVPlayerViewController and present it when the user taps
+        let gameItem = gameItems[indexPath.row]
+        
+        let videoURL = gameItem.url
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.player = player
+        
+        present(playerViewController, animated: true) {
+            player.play()
+        }
+    }
+
     
 
     /*
