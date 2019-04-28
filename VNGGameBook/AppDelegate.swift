@@ -16,11 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        //WebServer.shared.start()
+        WebServer.shared.start()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         
         let gamesVC = GameItemViewController()
-        gamesVC.gameItems = GameItem.localGames()
+        gamesVC.gameItems = GameModel.shared.gameItems
         
         let nav = UINavigationController(rootViewController: gamesVC)
         

@@ -36,6 +36,16 @@
 		FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6389A227306B000F49376 /* GameItemCell.swift */; };
 		FCE6389D2273113300F49376 /* PickMeUp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FCE6389C2273113300F49376 /* PickMeUp.jpg */; };
 		FCE6389F22754A6B00F49376 /* GameVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */; };
+		FCE638A82275788A00F49376 /* IdleFarmingEmpire.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A12275788A00F49376 /* IdleFarmingEmpire.zip */; };
+		FCE638A92275788A00F49376 /* PickMeUp.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A22275788A00F49376 /* PickMeUp.zip */; };
+		FCE638AA2275788B00F49376 /* TankStars.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A32275788A00F49376 /* TankStars.zip */; };
+		FCE638AB2275788B00F49376 /* guitar.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A42275788A00F49376 /* guitar.zip */; };
+		FCE638AC2275788B00F49376 /* Pinatamasters.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A52275788A00F49376 /* Pinatamasters.zip */; };
+		FCE638AD2275788B00F49376 /* SpillIt.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A62275788A00F49376 /* SpillIt.zip */; };
+		FCE638AE2275788B00F49376 /* KickTheBuddy.zip in Resources */ = {isa = PBXBuildFile; fileRef = FCE638A72275788A00F49376 /* KickTheBuddy.zip */; };
+		FCE638B222757B2100F49376 /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = FCE638B122757B2100F49376 /* config.json */; };
+		FCE638B422757B5200F49376 /* ads.json in Resources */ = {isa = PBXBuildFile; fileRef = FCE638B322757B5200F49376 /* ads.json */; };
+		FCE638B82275945500F49376 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE638B72275945500F49376 /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +106,16 @@
 		FCE6389A227306B000F49376 /* GameItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemCell.swift; sourceTree = "<group>"; };
 		FCE6389C2273113300F49376 /* PickMeUp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PickMeUp.jpg; sourceTree = "<group>"; };
 		FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVideoViewController.swift; sourceTree = "<group>"; };
+		FCE638A12275788A00F49376 /* IdleFarmingEmpire.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = IdleFarmingEmpire.zip; sourceTree = "<group>"; };
+		FCE638A22275788A00F49376 /* PickMeUp.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = PickMeUp.zip; sourceTree = "<group>"; };
+		FCE638A32275788A00F49376 /* TankStars.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = TankStars.zip; sourceTree = "<group>"; };
+		FCE638A42275788A00F49376 /* guitar.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = guitar.zip; sourceTree = "<group>"; };
+		FCE638A52275788A00F49376 /* Pinatamasters.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = Pinatamasters.zip; sourceTree = "<group>"; };
+		FCE638A62275788A00F49376 /* SpillIt.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = SpillIt.zip; sourceTree = "<group>"; };
+		FCE638A72275788A00F49376 /* KickTheBuddy.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = KickTheBuddy.zip; sourceTree = "<group>"; };
+		FCE638B122757B2100F49376 /* config.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		FCE638B322757B5200F49376 /* ads.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ads.json; sourceTree = "<group>"; };
+		FCE638B72275945500F49376 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,11 +168,12 @@
 				FCE6384622718A8D00F49376 /* LaunchScreen.storyboard */,
 				FCE6384922718A8D00F49376 /* Info.plist */,
 				FCE63866227198D000F49376 /* WebServer.swift */,
+				FCE638B72275945500F49376 /* GameModel.swift */,
 				FCE638882272E0BA00F49376 /* GameItem.swift */,
 				FCE638982272E8B100F49376 /* GameItemViewController.swift */,
 				FCE6389A227306B000F49376 /* GameItemCell.swift */,
 				FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */,
-				FCE638772272AD3700F49376 /* Local Videos */,
+				FCE638772272AD3700F49376 /* Resources */,
 			);
 			path = VNGGameBook;
 			sourceTree = "<group>";
@@ -175,13 +196,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FCE638772272AD3700F49376 /* Local Videos */ = {
+		FCE638772272AD3700F49376 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				FCE638B022757AE800F49376 /* json */,
+				FCE638A02275772800F49376 /* Endcards */,
 				FCE638792272D91000F49376 /* Videos */,
 				FCE638782272AD7E00F49376 /* Thumbnails */,
 			);
-			path = "Local Videos";
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FCE638782272AD7E00F49376 /* Thumbnails */ = {
@@ -210,6 +233,30 @@
 				FCE6388D2272E66500F49376 /* TankStars.mp4 */,
 			);
 			path = Videos;
+			sourceTree = "<group>";
+		};
+		FCE638A02275772800F49376 /* Endcards */ = {
+			isa = PBXGroup;
+			children = (
+				FCE638A42275788A00F49376 /* guitar.zip */,
+				FCE638A12275788A00F49376 /* IdleFarmingEmpire.zip */,
+				FCE638A72275788A00F49376 /* KickTheBuddy.zip */,
+				FCE638A22275788A00F49376 /* PickMeUp.zip */,
+				FCE638A52275788A00F49376 /* Pinatamasters.zip */,
+				FCE638A62275788A00F49376 /* SpillIt.zip */,
+				FCE638A32275788A00F49376 /* TankStars.zip */,
+			);
+			path = Endcards;
+			sourceTree = "<group>";
+		};
+		FCE638B022757AE800F49376 /* json */ = {
+			isa = PBXGroup;
+			children = (
+				FCE638B122757B2100F49376 /* config.json */,
+				FCE638B322757B5200F49376 /* ads.json */,
+			);
+			name = json;
+			path = Json;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,21 +342,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCE638B422757B5200F49376 /* ads.json in Resources */,
 				FCE638852272DD8000F49376 /* IdleFarmingEmpire.jpg in Resources */,
 				FCE638922272E66500F49376 /* guitar.mp4 in Resources */,
 				FCE6384822718A8D00F49376 /* LaunchScreen.storyboard in Resources */,
 				FCE638942272E66500F49376 /* TankStars.mp4 in Resources */,
+				FCE638A82275788A00F49376 /* IdleFarmingEmpire.zip in Resources */,
 				FCE638842272DD8000F49376 /* Pinatamasters.jpg in Resources */,
+				FCE638AD2275788B00F49376 /* SpillIt.zip in Resources */,
 				FCE6384522718A8D00F49376 /* Assets.xcassets in Resources */,
 				FCE638912272E66500F49376 /* PickMeUp.mp4 in Resources */,
 				FCE6384322718A8B00F49376 /* Main.storyboard in Resources */,
+				FCE638AA2275788B00F49376 /* TankStars.zip in Resources */,
 				FCE638872272DD8000F49376 /* guitar.jpg in Resources */,
 				FCE638832272DD8000F49376 /* SpillIt.jpg in Resources */,
 				FCE638962272E66500F49376 /* SpillIt.mp4 in Resources */,
 				FCE638932272E66500F49376 /* IdleFarmingEmpire.mp4 in Resources */,
+				FCE638AB2275788B00F49376 /* guitar.zip in Resources */,
 				FCE6389D2273113300F49376 /* PickMeUp.jpg in Resources */,
 				FCE638972272E66500F49376 /* KickTheBuddy.mp4 in Resources */,
+				FCE638A92275788A00F49376 /* PickMeUp.zip in Resources */,
+				FCE638AC2275788B00F49376 /* Pinatamasters.zip in Resources */,
+				FCE638AE2275788B00F49376 /* KickTheBuddy.zip in Resources */,
 				FCE638822272DD8000F49376 /* KickTheBuddy.jpg in Resources */,
+				FCE638B222757B2100F49376 /* config.json in Resources */,
 				FCE638952272E66500F49376 /* Pinatamasters.mp4 in Resources */,
 				FCE638812272DD8000F49376 /* TankStars.jpg in Resources */,
 			);
@@ -334,6 +390,7 @@
 				FCE6389F22754A6B00F49376 /* GameVideoViewController.swift in Sources */,
 				FCE638892272E0BB00F49376 /* GameItem.swift in Sources */,
 				FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */,
+				FCE638B82275945500F49376 /* GameModel.swift in Sources */,
 				FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */,
 				FCE63867227198D000F49376 /* WebServer.swift in Sources */,
 			);
