@@ -12,10 +12,52 @@ class GameItemCell: UITableViewCell {
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     let thumbImageView = UIImageView()
+    let kAdState = "adState"
+    
+    private var kvoCtx = 0
+    
+    var _gameItem: GameItem?
     
     var gameItem: GameItem? {
-        didSet {
+        set {
+            
+            //remove kvo from old item
+            unregisterKVO(_gameItem)
+            
+            _gameItem = newValue
+            
+            //register kvo for newValue
+            registerKVO(_gameItem)
+            
             updateViews()
+        }
+        
+        get {
+            return _gameItem
+        }
+        
+    }
+    
+    deinit {
+        unregisterKVO(_gameItem)
+    }
+    
+    func registerKVO(_ item:GameItem?) {
+        item?.addObserver(self, forKeyPath: kAdState, options:[.new, .old], context: &kvoCtx)
+        
+    }
+    
+    func unregisterKVO(_ item:GameItem?) {
+        item?.removeObserver(self, forKeyPath: kAdState)
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if context == &kvoCtx {
+            if keyPath == kAdState {
+                if let newState = change?[.newKey] {
+                    print("ad state changed, \(newState)")
+                }
+            }
         }
     }
     

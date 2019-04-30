@@ -7,6 +7,9 @@
 //
 
 import Foundation
+@objc enum GameAdState : Int {
+    case unload, loading, loaded, loadFailed, playing
+}
 
 
 class GameItem : NSObject {
@@ -18,6 +21,8 @@ class GameItem : NSObject {
     let storeURL: String
     let placementId: String
     
+    @objc dynamic var adState = GameAdState.unload
+    
     
     init(title:String, subtitle:String, url:URL, thumbURL:URL, endcardURL:URL, storeURL:String, placementId:String) {
         self.title = title
@@ -27,6 +32,7 @@ class GameItem : NSObject {
         self.endcardURL = endcardURL
         self.storeURL = storeURL
         self.placementId = placementId
+        
         super.init()
     }
     

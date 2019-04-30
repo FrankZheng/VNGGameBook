@@ -9,12 +9,14 @@
 import UIKit
 import AVKit
 
-class GameItemViewController: UITableViewController {
+class GameItemViewController: UITableViewController, SDKDelegate {
     var gameItems = [GameItem]()
     let GameItemCellReuseIdentifier = "GameItemCell"
     //used to cache the cell height
     //here use the row index as the key, need clear cache when reload data
     var cellHeightCache = [Int:CGFloat]()
+    
+    let sdkManager : SDKManagerProtocol = SDKManager.shared()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,23 @@ class GameItemViewController: UITableViewController {
         tableView.register(GameItemCell.classForCoder(), forCellReuseIdentifier: GameItemCellReuseIdentifier)
         self.title = "Game Book"
         
+        //register delegate
+        sdkManager.add(self)
+        
+    }
+    
+    func loadAd(forGameItem item:GameItem?) {
+        guard let item = item else {
+            return
+        }
+        let pID = item.placementId
+        if !sdkManager.isReady(pID) {
+            print("start to load \(pID)")
+            sdkManager.loadAd(pID)
+            item.adState = GameAdState.loading
+        } else {
+            print("ad \(pID) already loaded")
+        }
     }
 
     // MARK: - Table view data source
@@ -44,7 +63,11 @@ class GameItemViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: GameItemCellReuseIdentifier, for: indexPath) as! GameItemCell
-        cell.gameItem = gameItems[indexPath.row]
+        let gameItem = gameItems[indexPath.row]
+        cell.gameItem = gameItem
+        
+        //start to load ad
+        loadAd(forGameItem: gameItem)
         return cell
     }
     
@@ -74,14 +97,43 @@ class GameItemViewController: UITableViewController {
         present(playerViewController, animated: true) {
             player.play()
         }
-        #else
+        #elseif false
         let videoViewController = GameVideoViewController(gameItem: gameItem)
         present(videoViewController, animated: true) {
             videoViewController.play()
         }
+        #else
+        if(sdkManager.isReady(gameItem.placementId)) {
+            sdkManager.playAd(gameItem.placementId, viewController: self)
+        }
+        
         #endif
     }
-
+    
+    func findGameItem(byPlacementId pID:String) -> GameItem? {
+        let items = gameItems.filter { (gameItem) -> Bool in
+            return gameItem.placementId == pID
+        }
+        return items.count > 0 ? items[0] : nil
+    }
+    
+    // MARK: SDKDelegate methods
+    func onAdLoaded(_ placementId: String, error: Error?) {
+        let gameItem = findGameItem(byPlacementId: placementId)
+        gameItem?.adState = error == nil ? GameAdState.loaded : GameAdState.loadFailed
+    }
+    
+    func onAdDidPlay(_ placementId: String) {
+        let gameItem = findGameItem(byPlacementId: placementId)
+        gameItem?.adState = GameAdState.playing
+    }
+    
+    func onAdDidClose(_ placementId: String) {
+        let gameItem = findGameItem(byPlacementId: placementId)
+        gameItem?.adState = GameAdState.unload
+        
+        loadAd(forGameItem: gameItem)
+    }
     
 
     /*

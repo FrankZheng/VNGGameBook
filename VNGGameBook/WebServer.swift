@@ -102,10 +102,11 @@ class WebServer {
         guard var placements: [[String:AnyObject]] = json["placements"] as? [[String:AnyObject]] else {
             return nil
         }
-        let local: [String:AnyObject] = placements[1]
+        let local: [String:AnyObject] = placements[0]
         for gameItem in gameModel.gameItems {
             var copied = local
             copied["reference_id"] = gameItem.placementId as AnyObject
+            copied["id"] = UUID().uuidString as AnyObject
             placements.append(copied)
         }
         json["placements"] = placements as AnyObject

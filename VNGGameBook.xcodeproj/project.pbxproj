@@ -575,10 +575,12 @@
 					"$(PROJECT_DIR)/vungle-sdk/Vungle632",
 				);
 				INFOPLIST_FILE = VNGGameBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frank.test.VNGGameBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VNGGameBook/VNGGameBook-Bridging-Header.h";
@@ -601,10 +603,12 @@
 					"$(PROJECT_DIR)/vungle-sdk/Vungle632",
 				);
 				INFOPLIST_FILE = VNGGameBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frank.test.VNGGameBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VNGGameBook/VNGGameBook-Bridging-Header.h";

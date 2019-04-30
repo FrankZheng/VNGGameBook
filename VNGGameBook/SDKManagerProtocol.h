@@ -27,11 +27,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy) NSURL *serverURL; //for mock the backend server
 @property(nonatomic, assign) BOOL networkLoggingEnabled;
 
-+ (instancetype)sharedManager;
-
 - (void)addDelegate:(id<SDKDelegate>) delegate;
 
 - (void)start:(NSString*)appId;
+
+- (BOOL)isReady:(NSString *)placementId;
 
 - (void)loadAd:(NSString*)placementId;
 

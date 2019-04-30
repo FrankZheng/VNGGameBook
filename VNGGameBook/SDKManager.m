@@ -93,6 +93,10 @@
     [self clearCache:placementId completionBlock:nil];
 }
 
+- (BOOL)isReady:(NSString *)placementId {
+    return [_sdk isAdCachedForPlacementID:placementId];
+}
+
 - (void)loadAd:(nonnull NSString *)placementId {
     if (!_sdk.isInitialized) {
         //add placementId to queue
@@ -105,7 +109,10 @@
 }
 
 - (void)playAd:(nonnull NSString *)placementId viewController:(nonnull UIViewController *)viewController {
-    
+    NSError *error = nil;
+    if(![_sdk playAd:viewController options:nil placementID:placementId error:&error]) {
+        NSLog(@"Failed to play ad, %@, %@", placementId, error);
+    }
 }
 
 - (void)clearCache:(NSString *)pID completionBlock:(nullable void (^)(NSError *))completionBlock;{
@@ -128,18 +135,46 @@
     __weak typeof(self) weakSelf = self;
     [self clearCache:pID completionBlock:^(NSError *error) {
         if(error != nil) {
-            NSLog(@"Failed to clear cache, %@", error);
+            NSLog(@"Failed to clear cache, %@, %@", pID, error);
             return;
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             NSError *err = nil;
             if(![weakSelf.sdk loadPlacementWithID:pID error:&err]) {
-                NSLog(@"Failed to load ad, %@", error);
+                NSLog(@"Failed to load ad, %@, %@", pID, error);
             }
         });
     }];
 }
+
+- (void)notifyDelegates:(SEL)selector {
+    [self notifyDelegates:selector withParams:@[]];
+}
+
+- (void)notifyDelegates:(SEL)selector withParams:(NSArray *)params {
+    for(NSValue *value in _delegates) {
+        NSObject<SDKDelegate> *delegate = [value nonretainedObjectValue];
+        if(delegate != nil) {
+            if([delegate respondsToSelector:selector]) {
+                if(params.count == 0) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+                    [delegate performSelector:selector];
+                } else if(params.count == 1) {
+                    id param = (params[0] == [NSNull null] ? nil : params[0]);
+                    [delegate performSelector:selector withObject:param];
+                } else if(params.count == 2) {
+                    id param0 = (params[0] == [NSNull null] ? nil : params[0]);
+                    id param1 = (params[0] == [NSNull null] ? nil : params[1]);
+                    [delegate performSelector:selector withObject:param0 withObject:param1];
+                }
+#pragma clang diagnostic pop
+            }
+        }
+    }
+}
+
 
 
 
@@ -147,6 +182,60 @@
 - (void)vungleSDKLog:(nonnull NSString *)message {
     
 }
+
+#pragma mark - VungleSDKDelegate methods
+
+- (void)vungleSDKDidInitialize {
+    NSLog(@"vungleSDKDidInitialize");
+    
+    [self notifyDelegates:@selector(sdkDidInitialize)];
+    
+    if(_queue.count > 0) {
+        for(NSString *pID in _queue) {
+            [self loadPlacement:pID];
+        }
+        [_queue removeAllObjects];
+    }
+}
+
+- (void)vungleAdPlayabilityUpdate:(BOOL)isAdPlayable
+                      placementID:(nullable NSString *)placementID
+                            error:(nullable NSError *)error {
+    NSLog(@"vungleAdPlayabilityUpdate:%@ placementID:%@  error:%@", @(isAdPlayable), placementID, error);
+    if (_sdk.initialized) {
+        id pID = placementID ? : [NSNull null];
+        if(isAdPlayable) {
+            [self notifyDelegates:@selector(onAdLoaded:error:) withParams:@[pID, [NSNull null]]];
+        } else {
+            if(error != nil) {
+                [self notifyDelegates:@selector(onAdLoaded:error:) withParams:@[pID, error]];
+            }
+        }
+    }
+}
+
+
+- (void)vungleSDKFailedToInitializeWithError:(NSError *)error {
+    NSLog(@"vungleSDKFailedToInitializeWithError, %@", error);
+}
+
+- (void)vungleWillShowAdForPlacementID:(nullable NSString *)placementID {
+    NSLog(@"vungleWillShowAdForPlacementID, %@", placementID);
+    id pID = placementID ? : [NSNull null];
+    [self notifyDelegates:@selector(onAdDidPlay:) withParams:@[pID]];
+}
+
+- (void)vungleWillCloseAdWithViewInfo:(nonnull VungleViewInfo *)info placementID:(nonnull NSString *)placementID {
+    NSLog(@"vungleWillCloseAdWithViewInfo, %@, %@", info, placementID);
+    //[self notifyDelegates:@selector(onAdDidClose)];
+}
+
+- (void)vungleDidCloseAdWithViewInfo:(nonnull VungleViewInfo *)info placementID:(nonnull NSString *)placementID {
+    NSLog(@"vungleDidCloseAdWithViewInfo, %@, %@", info, placementID);
+    [self notifyDelegates:@selector(onAdDidClose:) withParams:@[placementID]];
+    
+}
+
 
 
 @end
