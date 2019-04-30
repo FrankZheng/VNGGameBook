@@ -12,6 +12,8 @@ class GameItemCell: UITableViewCell {
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     let thumbImageView = UIImageView()
+    let adStateLabel = UILabel()
+    
     let kAdState = "adState"
     
     private var kvoCtx = 0
@@ -51,11 +53,24 @@ class GameItemCell: UITableViewCell {
         item?.removeObserver(self, forKeyPath: kAdState)
     }
     
+    func updateAdStateText() {
+        var stateStr = ""
+        if gameItem?.adState == GameAdState.loading {
+            stateStr = "loading"
+        } else if gameItem?.adState == GameAdState.loaded {
+            stateStr = "ready"
+        } else if gameItem?.adState == GameAdState.loadFailed {
+            stateStr = "failed"
+        }
+        adStateLabel.text = stateStr
+    }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if context == &kvoCtx {
             if keyPath == kAdState {
                 if let newState = change?[.newKey] {
                     print("ad state changed, \(newState)")
+                    updateAdStateText()
                 }
             }
         }
@@ -94,6 +109,7 @@ class GameItemCell: UITableViewCell {
         addSubview(titleLabel)
         addSubview(thumbImageView)
         addSubview(subtitleLabel)
+        addSubview(adStateLabel)
     }
     
     
@@ -101,6 +117,7 @@ class GameItemCell: UITableViewCell {
         
         titleLabel.text = gameItem?.title
         titleLabel.font = UIFont.systemFont(ofSize: 24.0)
+        titleLabel.numberOfLines = 1
         
         let image = UIImage(named: (gameItem?.thumbURL.path)!)
         thumbImageView.image = image
@@ -108,6 +125,12 @@ class GameItemCell: UITableViewCell {
         subtitleLabel.text = gameItem?.subtitle
         subtitleLabel.font = UIFont.systemFont(ofSize: 14.0)
         subtitleLabel.numberOfLines = 0
+        
+        adStateLabel.font = UIFont.systemFont(ofSize: 12.0)
+        adStateLabel.textColor = UIColor.gray
+        adStateLabel.numberOfLines = 1
+        adStateLabel.textAlignment = .right
+        updateAdStateText()
     }
     
     override func layoutSubviews() {
@@ -118,8 +141,13 @@ class GameItemCell: UITableViewCell {
         
         let widthWithPadding = bounds.width - (2*padding)
         
+        let stateWidth:CGFloat = 42
+        let stateHeight:CGFloat = 30
+        adStateLabel.frame = CGRect(x: bounds.width - padding - stateWidth, y: padding,
+                                     width: stateWidth, height: stateHeight)
+        
         // Size
-        let titleSize = titleLabel.sizeThatFits(CGSize(width: widthWithPadding, height: .infinity))
+        let titleSize = titleLabel.sizeThatFits(CGSize(width: widthWithPadding - padding - stateWidth, height: .infinity))
         titleLabel.bounds = CGRect(x: 0, y: 0, width: titleSize.width, height: titleSize.height)
         
         let subtitleSize = subtitleLabel.sizeThatFits(CGSize(width: widthWithPadding, height: .infinity))

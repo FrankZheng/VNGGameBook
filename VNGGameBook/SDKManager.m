@@ -166,7 +166,7 @@
                     [delegate performSelector:selector withObject:param];
                 } else if(params.count == 2) {
                     id param0 = (params[0] == [NSNull null] ? nil : params[0]);
-                    id param1 = (params[0] == [NSNull null] ? nil : params[1]);
+                    id param1 = (params[1] == [NSNull null] ? nil : params[1]);
                     [delegate performSelector:selector withObject:param0 withObject:param1];
                 }
 #pragma clang diagnostic pop
