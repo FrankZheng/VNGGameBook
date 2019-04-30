@@ -40,7 +40,7 @@ class GameItem : NSObject {
         var games = [GameItem]()
         
         let titles = [
-            "Kick the Buddy", "Guitar - Chords, Tabs & Games", "Tank Stars", "Pick Me Up™",
+            "Kick the Buddy", "Guitar Master", "Tank Stars", "Pick Me Up™",
             "Spill It!", "Pinatamasters", "Idle Farming Empire"
         ]
         let subtitles = [
