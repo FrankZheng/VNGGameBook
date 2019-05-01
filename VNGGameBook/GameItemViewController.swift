@@ -119,6 +119,7 @@ class GameItemViewController: UITableViewController, SDKDelegate {
     
     // MARK: SDKDelegate methods
     func onAdLoaded(_ placementId: String, error: Error?) {
+        print("onAdLoaded, \(placementId)")
         let gameItem = findGameItem(byPlacementId: placementId)
         gameItem?.adState = error == nil ? GameAdState.loaded : GameAdState.loadFailed
     }
@@ -129,10 +130,19 @@ class GameItemViewController: UITableViewController, SDKDelegate {
     }
     
     func onAdDidClose(_ placementId: String) {
+        print("onAdDidClose, \(placementId)")
         let gameItem = findGameItem(byPlacementId: placementId)
         gameItem?.adState = GameAdState.unload
         
+        #if false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            self?.loadAd(forGameItem: gameItem)
+            
+        }
+        #else
         loadAd(forGameItem: gameItem)
+        #endif
+        
     }
     
 

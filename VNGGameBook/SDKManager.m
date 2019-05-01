@@ -94,7 +94,9 @@
 }
 
 - (BOOL)isReady:(NSString *)placementId {
-    return [_sdk isAdCachedForPlacementID:placementId];
+    BOOL ret = [_sdk isAdCachedForPlacementID:placementId];
+    //NSLog(@"%@ isReady:%@", placementId, ret ? @"TRUE" : @"FALSE");
+    return ret;
 }
 
 - (void)loadAd:(nonnull NSString *)placementId {

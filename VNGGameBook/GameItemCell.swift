@@ -66,13 +66,8 @@ class GameItemCell: UITableViewCell {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if context == &kvoCtx {
-            if keyPath == kAdState {
-                if let newState = change?[.newKey] {
-                    print("ad state changed, \(newState)")
-                    updateAdStateText()
-                }
-            }
+        if context == &kvoCtx && keyPath == kAdState {
+            updateAdStateText()
         }
     }
     

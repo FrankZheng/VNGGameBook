@@ -60,7 +60,18 @@ class WebServer {
                                 allowRangeRequests: true)
         
         //start web server
-        webServer.start(withPort:8091, bonjourName: nil)
+        let options: [String:Any] = [
+            GCDWebServerOption_Port: 8091,
+            GCDWebServerOption_BindToLocalhost : true,
+            GCDWebServerOption_AutomaticallySuspendInBackground: false
+        ]
+        do {
+            try webServer.start(options: options)
+        } catch {
+            print("Failed to start web server, \(error)")
+        }
+        
+        //webServer.start(withPort:8091, bonjourName: nil)
         serverURL = webServer.serverURL
     }
     
