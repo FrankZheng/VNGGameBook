@@ -4,3 +4,6 @@
 
 #import <GCDWebServers/GCDWebServer.h>
 #import <GCDWebServers/GCDWebServerDataResponse.h>
+#import "SDKManagerProtocol.h"
+#import "SDKManager.h"
+

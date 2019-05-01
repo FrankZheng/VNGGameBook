@@ -12,11 +12,16 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let appId = "VNGGameBook"
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        WebServer.shared.start()
+        let webServer = WebServer.shared
+        webServer.start()
+        let sdkManager = SDKManager.shared()
+        sdkManager.serverURL = webServer.serverURL!
+        sdkManager.networkLoggingEnabled = false
+        sdkManager.start(appId)
         
         window = UIWindow(frame: UIScreen.main.bounds)
         

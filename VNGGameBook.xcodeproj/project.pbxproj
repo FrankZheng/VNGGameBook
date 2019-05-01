@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F6E83BD42277DB77001B3492 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E83BD32277DB77001B3492 /* VungleSDK.framework */; };
+		F6E83BD72277DCDD001B3492 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E83BD62277DCDD001B3492 /* SDKManager.m */; };
 		FCE6383E22718A8B00F49376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6383D22718A8B00F49376 /* AppDelegate.swift */; };
 		FCE6384022718A8B00F49376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6383F22718A8B00F49376 /* ViewController.swift */; };
 		FCE6384322718A8B00F49376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE6384122718A8B00F49376 /* Main.storyboard */; };
@@ -74,6 +76,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F6E83BD32277DB77001B3492 /* VungleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VungleSDK.framework; path = "vungle-sdk/Vungle632/VungleSDK.framework"; sourceTree = "<group>"; };
+		F6E83BD52277DCDD001B3492 /* SDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
+		F6E83BD62277DCDD001B3492 /* SDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
+		F6E83BD82277DD0F001B3492 /* SDKManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManagerProtocol.h; sourceTree = "<group>"; };
 		FCE6383A22718A8B00F49376 /* VNGGameBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNGGameBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE6383D22718A8B00F49376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE6383F22718A8B00F49376 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E83BD42277DB77001B3492 /* VungleSDK.framework in Frameworks */,
 				FCE6387422719C2C00F49376 /* GCDWebServers.framework in Frameworks */,
 				FCE6387222719C2C00F49376 /* Alamofire.framework in Frameworks */,
 			);
@@ -174,6 +181,9 @@
 				FCE6389A227306B000F49376 /* GameItemCell.swift */,
 				FCE6389E22754A6B00F49376 /* GameVideoViewController.swift */,
 				FCE638772272AD3700F49376 /* Resources */,
+				F6E83BD52277DCDD001B3492 /* SDKManager.h */,
+				F6E83BD62277DCDD001B3492 /* SDKManager.m */,
+				F6E83BD82277DD0F001B3492 /* SDKManagerProtocol.h */,
 			);
 			path = VNGGameBook;
 			sourceTree = "<group>";
@@ -190,6 +200,7 @@
 		FCE63865227198A700F49376 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6E83BD32277DB77001B3492 /* VungleSDK.framework */,
 				FCE6386E22719C1E00F49376 /* Alamofire.framework */,
 				FCE6386F22719C1E00F49376 /* GCDWebServers.framework */,
 			);
@@ -392,6 +403,7 @@
 				FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */,
 				FCE638B82275945500F49376 /* GameModel.swift in Sources */,
 				FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */,
+				F6E83BD72277DCDD001B3492 /* SDKManager.m in Sources */,
 				FCE63867227198D000F49376 /* WebServer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -560,12 +572,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/vungle-sdk/Vungle632",
 				);
 				INFOPLIST_FILE = VNGGameBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frank.test.VNGGameBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VNGGameBook/VNGGameBook-Bridging-Header.h";
@@ -585,12 +600,15 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)/vungle-sdk/Vungle632",
 				);
 				INFOPLIST_FILE = VNGGameBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.frank.test.VNGGameBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "VNGGameBook/VNGGameBook-Bridging-Header.h";
