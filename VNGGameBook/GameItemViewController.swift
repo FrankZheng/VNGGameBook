@@ -9,14 +9,16 @@
 import UIKit
 import AVKit
 
-class GameItemViewController: UITableViewController, SDKDelegate {
+class GameItemViewController: UITableViewController, SDKDelegate, GameModelDelegate {
     var gameItems = [GameItem]()
     let GameItemCellReuseIdentifier = "GameItemCell"
+    let appId = "VNGGameBook"
     //used to cache the cell height
     //here use the row index as the key, need clear cache when reload data
     var cellHeightCache = [Int:CGFloat]()
     
     let sdkManager : SDKManagerProtocol = SDKManager.shared()
+    let gameModel: GameModel = GameModel.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,20 @@ class GameItemViewController: UITableViewController, SDKDelegate {
         
         //register delegate
         sdkManager.add(self)
+        gameModel.delegate = self
+        gameModel.loadGameItems()
         
+    }
+    
+    func onGameItemsLoaded(error: Error?) {
+        if error == nil {
+//            if(!sdkManager.isInitialized) {
+//                sdkManager.start(appId)
+//            }
+            
+            gameItems = gameModel.gameItems
+            tableView.reloadData()
+        }
     }
     
     func loadAd(forGameItem item:GameItem?) {
@@ -67,7 +82,11 @@ class GameItemViewController: UITableViewController, SDKDelegate {
         cell.gameItem = gameItem
         
         //start to load ad
-        loadAd(forGameItem: gameItem)
+        //loadAd(forGameItem: gameItem)
+        if gameItem.adState == .undownload {
+            gameItem.download()
+        }
+        
         return cell
     }
     
@@ -132,7 +151,7 @@ class GameItemViewController: UITableViewController, SDKDelegate {
     func onAdDidClose(_ placementId: String) {
         print("onAdDidClose, \(placementId)")
         let gameItem = findGameItem(byPlacementId: placementId)
-        gameItem?.adState = GameAdState.unload
+        gameItem?.adState = GameAdState.downloaded
         
         #if false
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in

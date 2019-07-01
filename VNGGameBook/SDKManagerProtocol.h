@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, readonly) NSString *sdkVersion;
 @property(nonatomic, copy) NSURL *serverURL; //for mock the backend server
 @property(nonatomic, assign) BOOL networkLoggingEnabled;
+@property(nonatomic, readonly, getter=isInitialized) BOOL initialized;
 
 - (void)addDelegate:(id<SDKDelegate>) delegate;
 

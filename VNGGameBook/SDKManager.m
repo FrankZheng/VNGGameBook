@@ -29,6 +29,7 @@
 @synthesize sdkVersion = _sdkVersion;
 @synthesize serverURL = _serverURL;
 @synthesize networkLoggingEnabled = _networkLoggingEnabled;
+@synthesize initialized = _initialized;
 
 + (nonnull instancetype)sharedManager {
     static SDKManager *instance = nil;
@@ -48,6 +49,10 @@
         _defaults = [NSUserDefaults standardUserDefaults];
     }
     return self;
+}
+
+- (BOOL)initialized {
+    return _sdk.isInitialized;
 }
 
 - (void)start:(nonnull NSString *)appId {

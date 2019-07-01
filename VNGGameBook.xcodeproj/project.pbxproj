@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		F6E83BD42277DB77001B3492 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E83BD32277DB77001B3492 /* VungleSDK.framework */; };
 		F6E83BD72277DCDD001B3492 /* SDKManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E83BD62277DCDD001B3492 /* SDKManager.m */; };
+		FC6AB31F22802E5100796F27 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC6AB31E22802E5100796F27 /* Kingfisher.framework */; };
+		FC6AB3212280307500796F27 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FC6AB31E22802E5100796F27 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FC6AB3252280385100796F27 /* GameAdCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AB3242280385100796F27 /* GameAdCache.swift */; };
+		FC6AB32722803A6700796F27 /* GameAdDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AB32622803A6700796F27 /* GameAdDownloader.swift */; };
+		FC6AB32B22815DE100796F27 /* WeakArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6AB32A22815DE100796F27 /* WeakArray.swift */; };
 		FCE6383E22718A8B00F49376 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6383D22718A8B00F49376 /* AppDelegate.swift */; };
 		FCE6384022718A8B00F49376 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE6383F22718A8B00F49376 /* ViewController.swift */; };
 		FCE6384322718A8B00F49376 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE6384122718A8B00F49376 /* Main.storyboard */; };
@@ -68,6 +73,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FCE6387322719C2C00F49376 /* Alamofire.framework in Embed Frameworks */,
+				FC6AB3212280307500796F27 /* Kingfisher.framework in Embed Frameworks */,
 				FCE6387522719C2C00F49376 /* GCDWebServers.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -80,6 +86,10 @@
 		F6E83BD52277DCDD001B3492 /* SDKManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManager.h; sourceTree = "<group>"; };
 		F6E83BD62277DCDD001B3492 /* SDKManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SDKManager.m; sourceTree = "<group>"; };
 		F6E83BD82277DD0F001B3492 /* SDKManagerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDKManagerProtocol.h; sourceTree = "<group>"; };
+		FC6AB31E22802E5100796F27 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
+		FC6AB3242280385100796F27 /* GameAdCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdCache.swift; sourceTree = "<group>"; };
+		FC6AB32622803A6700796F27 /* GameAdDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameAdDownloader.swift; sourceTree = "<group>"; };
+		FC6AB32A22815DE100796F27 /* WeakArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakArray.swift; sourceTree = "<group>"; };
 		FCE6383A22718A8B00F49376 /* VNGGameBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VNGGameBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE6383D22718A8B00F49376 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE6383F22718A8B00F49376 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC6AB31F22802E5100796F27 /* Kingfisher.framework in Frameworks */,
 				F6E83BD42277DB77001B3492 /* VungleSDK.framework in Frameworks */,
 				FCE6387422719C2C00F49376 /* GCDWebServers.framework in Frameworks */,
 				FCE6387222719C2C00F49376 /* Alamofire.framework in Frameworks */,
@@ -184,6 +195,9 @@
 				F6E83BD52277DCDD001B3492 /* SDKManager.h */,
 				F6E83BD62277DCDD001B3492 /* SDKManager.m */,
 				F6E83BD82277DD0F001B3492 /* SDKManagerProtocol.h */,
+				FC6AB3242280385100796F27 /* GameAdCache.swift */,
+				FC6AB32622803A6700796F27 /* GameAdDownloader.swift */,
+				FC6AB32A22815DE100796F27 /* WeakArray.swift */,
 			);
 			path = VNGGameBook;
 			sourceTree = "<group>";
@@ -200,6 +214,7 @@
 		FCE63865227198A700F49376 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC6AB31E22802E5100796F27 /* Kingfisher.framework */,
 				F6E83BD32277DB77001B3492 /* VungleSDK.framework */,
 				FCE6386E22719C1E00F49376 /* Alamofire.framework */,
 				FCE6386F22719C1E00F49376 /* GCDWebServers.framework */,
@@ -399,9 +414,12 @@
 				FCE6384022718A8B00F49376 /* ViewController.swift in Sources */,
 				FCE6383E22718A8B00F49376 /* AppDelegate.swift in Sources */,
 				FCE6389F22754A6B00F49376 /* GameVideoViewController.swift in Sources */,
+				FC6AB3252280385100796F27 /* GameAdCache.swift in Sources */,
 				FCE638892272E0BB00F49376 /* GameItem.swift in Sources */,
 				FCE638992272E8B100F49376 /* GameItemViewController.swift in Sources */,
 				FCE638B82275945500F49376 /* GameModel.swift in Sources */,
+				FC6AB32722803A6700796F27 /* GameAdDownloader.swift in Sources */,
+				FC6AB32B22815DE100796F27 /* WeakArray.swift in Sources */,
 				FCE6389B227306B000F49376 /* GameItemCell.swift in Sources */,
 				F6E83BD72277DCDD001B3492 /* SDKManager.m in Sources */,
 				FCE63867227198D000F49376 /* WebServer.swift in Sources */,
@@ -575,7 +593,7 @@
 					"$(PROJECT_DIR)/vungle-sdk/Vungle632",
 				);
 				INFOPLIST_FILE = VNGGameBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -603,7 +621,7 @@
 					"$(PROJECT_DIR)/vungle-sdk/Vungle632",
 				);
 				INFOPLIST_FILE = VNGGameBook/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

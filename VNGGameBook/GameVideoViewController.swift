@@ -41,7 +41,7 @@ class GameVideoViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if let item = gameItem {
-            playerItem = AVPlayerItem(url:item.url)
+            playerItem = AVPlayerItem(url:item.videoURL)
             player = AVPlayer(playerItem: playerItem)
             let playerLayer = AVPlayerLayer(player: player)
             playerLayer.frame = self.view.bounds

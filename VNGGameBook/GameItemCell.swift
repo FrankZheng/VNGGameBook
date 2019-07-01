@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class GameItemCell: UITableViewCell {
     let titleLabel = UILabel()
@@ -114,8 +115,7 @@ class GameItemCell: UITableViewCell {
         titleLabel.font = UIFont.systemFont(ofSize: 24.0)
         titleLabel.numberOfLines = 1
         
-        let image = UIImage(named: (gameItem?.thumbURL.path)!)
-        thumbImageView.image = image
+        thumbImageView.kf.setImage(with: gameItem?.thumbURL)
         
         subtitleLabel.text = gameItem?.subtitle
         subtitleLabel.font = UIFont.systemFont(ofSize: 14.0)

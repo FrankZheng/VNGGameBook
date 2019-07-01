@@ -144,7 +144,7 @@ class WebServer {
         let variables = [
             "${placementId}": placementId,
             "${expiry}": String(getNotExpiredTime()),
-            "${videoURL}": staticURL(withPath: gameItem.url.lastPathComponent)?.absoluteString,
+            "${videoURL}": staticURL(withPath: gameItem.videoURL.lastPathComponent)?.absoluteString,
             "${postBundle}": staticURL(withPath: gameItem.endcardURL.lastPathComponent)?.absoluteString,
             "${storeURL}": gameItem.storeURL
         ]
